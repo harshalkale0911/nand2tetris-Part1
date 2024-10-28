@@ -11,3 +11,7 @@ AND gate simulator Image :
 
 XOR gate simulator Image :
 ![Xor ](https://github.com/user-attachments/assets/950e6ea0-13af-42de-bbd1-0a6c5d5785b9)
+
+MUX hardware simulator : ![Screenshot 2024-10-28 111134](https://github.com/user-attachments/assets/19961562-9da8-4a48-8427-1fb75dce3eed)
+
+DMUX hardware simulator  : ![Dmux](https://github.com/user-attachments/assets/3fff201d-f602-43f0-aea6-bd9757a7cec4)
