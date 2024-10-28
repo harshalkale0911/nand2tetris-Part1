@@ -1,0 +1,11 @@
+ // It performs the logical OR operation on two inputs.
+
+CHIP Or {
+    IN a, b;        // Two input pins
+    OUT out;        // Output pin
+
+    PARTS:
+    Nand(a=a, b=a, out=nota);     // Using De Morgan's Law to create OR from NAND
+    Nand(a=b, b=b, out=notb);
+    Nand(a=nota, b=notb, out=out);
+}
