@@ -1,0 +1,10 @@
+// And gate: if all input is 1 then output will be 1
+
+CHIP And{
+    IN a , b ;
+    OUT out;
+
+    PARTS:
+    Nand(a=a , b=b, out=nandOut) ;
+    Not(in=nandOut , out = out) ;
+}
