@@ -1,0 +1,13 @@
+// Mux.hdl - 2-way Multiplexer
+
+CHIP Mux {
+    IN a, b, sel;
+    OUT out;
+
+    PARTS:
+    // Implementing Mux logic using basic gates
+    Not(in=sel, out=nSel);
+    And(a=a, b=nSel, out=aAnd);
+    And(a=b, b=sel, out=bAnd);
+    Or(a=aAnd, b=bAnd, out=out);
+}

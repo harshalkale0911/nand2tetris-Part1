@@ -1,0 +1,12 @@
+// Dmux.hdl - 1-to-2 Demultiplexer
+
+CHIP Dmux {
+    IN in, sel;
+    OUT a, b;
+
+    PARTS:
+    // Implementing Dmux logic
+    Not(in=sel, out=nSel);        // Negate sel
+    And(a=in, b=nSel, out=a);     // a = in AND NOT(sel)
+    And(a=in, b=sel, out=b);      // b = in AND sel
+}
