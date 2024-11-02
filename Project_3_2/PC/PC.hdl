@@ -1,0 +1,22 @@
+CHIP PC {
+    IN in[16], inc, load, reset;
+    OUT out[16];
+    
+    PARTS:
+    // Define a 16-bit constant zero
+    // This creates a 16-bit zero constant to use in the Mux16
+    Constant(value=false[16], out=zero);
+
+    // Mux16 to select zero if reset is high, else the input from the current output
+    Mux16(a=zero, b=out, sel=reset, out=resetOut);
+
+    // Mux16 to select between in and incremented out
+    Mux16(a=resetOut, b=in, sel=load, out=loadOut);
+
+    // Increment the current output by 1 if inc is high
+    Inc16(in=out, out=incrementedOut);
+    Mux16(a=loadOut, b=incrementedOut, sel=inc, out=nextOut);
+
+    // Register to hold the value, only update with nextOut if load is 1
+    Register(in=nextOut, out=out, load=true);
+}
